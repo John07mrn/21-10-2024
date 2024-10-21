@@ -62,3 +62,18 @@ editButton.addEventListener('click', async () => {
         console.log(err);
     }
 });
+
+const deleteButton = document.getElementById('form-delete-button');
+const toDeleteId = 2;
+deleteButton.addEventListener('click', async () => {
+    try {
+        const deleteUrl = `${baseUrl}${postsEndpoint}/${toDeleteId}`;
+        const response = await fetch(deleteUrl, {method: 'DELETE'});
+        console.log(response);
+        const data = await response.json();
+        console.log(data);
+    } catch (err) {
+        console.log(err);
+    }
+    
+})
